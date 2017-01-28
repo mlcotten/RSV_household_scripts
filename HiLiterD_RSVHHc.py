@@ -1,7 +1,10 @@
-#!/usr/local/bin/pythonimport sys
+#!/usr/local/bin/python
+import sys
 sys.path.insert(0, "/Users/matthewcotten/biopython-1.60")# new version of biopython
-import os.pathfrom Bio import SeqIO
-from Bio.Seq import Seqfrom Bio.SeqRecord import SeqRecord
+import os.path
+from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 from Bio.Blast import NCBIWWW
 import sys
 import os.path
@@ -222,37 +225,6 @@ for alignment in alignment_list:
 		ax2.broken_barh([(int(diff_list[i][0]), (diff_list[i][1]))], (int(diff_list[i][2]), 0.85), facecolors=(color),edgecolors=(color))
 
 	plot_index = plot_index+1
-
-
-#add feature graph at top of each column
-# feature_table = csv.reader(open(feature_table, "rU"))
-# feature_names =[]
-# feature_map_positions = []
-# feature_lengths = []
-# feature_colors=[]
-# feature_table.next()#skip header
-# for row in feature_table:
-# 	feature_name = str(row[0])
-# 	feature_names.append(feature_name)
-# 	feature_start = int(row[1])
-# 	feature_map_positions.append(feature_start)
-# 	feature_length = int(row[2])- int(row[1])
-# 	feature_lengths.append(feature_length)
-# 	feature_color = str(row[3])
-# 	feature_colors.append(feature_color)
-#
-# ax3 = fig.add_subplot(10,2,20)
-#
-# ax3.set_ylim(0, 1)
-# ax3.set_xlim(-graph_pad,(genome_length+graph_pad))
-# ax3.set_xticklabels([])
-# ax3.set_yticklabels([])
-# ax3.grid(False)
-# ax3.get_yaxis().set_visible(False)
-# for i in range(len(feature_map_positions)):
-# 	ax3.broken_barh([(int(feature_map_positions[i]), int(feature_lengths[i]))],(0.2, 0.3), facecolors=(str(feature_colors[i])), edgecolors=('None'))
-# 	ax3.annotate(feature_names[i], xy=(1,1), xytext=(feature_map_positions[i], 0.6), fontsize=4)
-
 
 plt.tight_layout()
 plt.savefig(outprefix+'_differences.pdf')
